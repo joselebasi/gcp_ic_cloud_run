@@ -1,0 +1,5 @@
+steps:
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '-t', 'gcr.io/unifin-unilease-prod/github.com/joselebasi/gcp_ic_cloud_run:$SHORT_SHA', '.']
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['push','gcr.io/unifin-unilease-prod/github.com/joselebasi/gcp_ic_cloud_run:$SHORT_SHA', '.']
