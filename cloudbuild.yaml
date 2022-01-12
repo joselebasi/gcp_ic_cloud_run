@@ -1,7 +1,7 @@
 steps:
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '-t', 'gcr.io/unifin-unilease-prod/github.com/joselebasi/gcp_ic_cloud_run:$SHORT_SHA', '.']
+  args: ['build', '-t', 'gcr.io/unifin-unilease-qa/github.com/joselebasi/gcp_ic_cloud_run:$SHORT_SHA', '.']
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['push','gcr.io/unifin-unilease-prod/github.com/joselebasi/gcp_ic_cloud_run:$SHORT_SHA']
+  args: ['push','gcr.io/unifin-unilease-qa/github.com/joselebasi/gcp_ic_cloud_run:$SHORT_SHA']
 - name: 'gcr.io/cloud-builders/gcloud'
-  args: ['beta', 'run', 'deploy', 'gcp-ic-cloud-run', '--region=us-central1', '--platform=managed', '--image=gcr.io/unifin-unilease-prod/github.com/joselebasi/gcp_ic_cloud_run:$SHORT_SHA']
+  args: ['run', 'deploy', 'gcp-ic-cloud-run', '--region=us-central1', '--platform=managed', '--allow-unauthenticated', '--image=gcr.io/unifin-unilease-qa/github.com/joselebasi/gcp_ic_cloud_run:$SHORT_SHA']
