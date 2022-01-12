@@ -4,6 +4,6 @@ const PORT = process.env.PORT || 8080
 http
   .createServer((req, res) => {
     console.log('New connection')
-    res.end('Hello Cloud Run')
+    res.end('Hello Cloud Run continuos integration')
   })
   .listen(PORT, () => console.log('Listening on', PORT))
